@@ -1,0 +1,27 @@
+<!-- views/post.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+</head>
+<body>
+    <h1 id="post-title"></h1>
+    <div id="post-content">
+        <%if (locals._id){%>
+            <% blogs.forEach(blogs => { %>
+                <li>
+                   <% if (blogs._id == locals._id){%>
+                    Date Created: <%= blogs.createdAt%><br />
+                    Post Message: <%= blogs.postMsg%>
+                    <%}%>
+                </li>
+                <% }); %>
+        <%}%>
+      
+    </div>
+    <a href="/">Back to Home</a>
+    <script src="/js/post.js"></script>
+</body>
+</html>
